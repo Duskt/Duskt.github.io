@@ -1,0 +1,71 @@
+body {
+    font-family: Verdana,Helvetica,Arial,sans-serif;
+}
+
+/* Positioning */
+
+#gamecontent {
+    display: flex;
+    max-height: 90vh
+}
+
+#chatbox {
+    overflow-y: scroll;
+    border: 1px solid black;
+    padding: 2px;
+}
+
+#notes {
+    border: 1px dotted gray;
+    min-width: 20%;
+}
+
+#navbar {
+    margin-bottom: 8px;
+}
+
+/* Color theme */
+
+#chatbox.dark {
+    color: white;
+    background-color: rgb(41, 41, 41);
+}
+
+#chatbox.light {
+    color: black;
+    background-color: white;
+}
+
+.highlight {
+    background-color: yellow !important;
+    color: black !important;
+}
+
+/* Comments */
+#comment {
+    width: 97%;
+    width: calc(100% - 6px);
+    height: 90%;
+    resize: none;
+}
+
+/* Chat styles taken from PS! */
+.chat {
+    vertical-align: middle;
+    padding: 3px 0px;
+}
+
+.chat em {
+    padding: 0 4px 0 3px;
+    font-style: normal;
+    font-size: 12pt;
+}
+
+.chat strong {
+    font-size: 12pt;
+}
+
+.chat small {
+    color: #888
+}
+

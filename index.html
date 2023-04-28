@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Mafia Viewer</title>
+        <script src="script.js"></script>
+        <link href="style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div id="navbar">
+            <button onclick="changeTheme()">Light mode</button>
+            <button onclick="clearCache()">Clear comments</button>
+        </div>
+        <div id="gamecontent">
+            <div id="chatbox" class="dark"></div>
+            <div id="notes" hidden="true">
+                <button onclick="setComment()">Save comment</button>
+                <textarea id="comment" placeholder="Click on a message to write a comment.";></textarea>
+            </div>
+        </div>
+    </body>
+</html>
