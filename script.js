@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         let button = document.createElement('button');
         button.textContent = "Game " + gameNo.toString();
         button.onclick = () => getGameLogs(gameNo);
-        // hidden if there is no link
+        // disabled if there is no link
         if (gameDocIDs[gameNo] === "") {
             button.disabled = true
         }
