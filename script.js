@@ -17,18 +17,25 @@ const gameDocIDs = {
     12: "",
 }
 
-// "dark" | "light"
-var colorTheme = "dark"
+// GLOBALS
+var colorTheme = "dark" // "dark" | "light"
 var selectedChat = undefined;
 var selectedGame = undefined;
 
 document.addEventListener("DOMContentLoaded", function(event) {
+    // set colorTheme
     chatbox.classList.add(colorTheme);
+
+    // generate game buttons
     let navbar = document.getElementById("navbar");
     for (let gameNo in gameDocIDs) {
         let button = document.createElement('button');
         button.textContent = "Game " + gameNo.toString();
         button.onclick = () => getGameLogs(gameNo);
+        // hidden if there is no link
+        if (gameDocIDs[gameNo] === "") {
+            button.disabled = true
+        }
         navbar.appendChild(button);
     }
 });
@@ -41,7 +48,7 @@ function fetchLogs(url) {
 }
 
 function changeTheme() {
-    // alternates - refactor if adding new themes
+    // binary alternates - refactor if adding new themes
     let chatbox = document.getElementById("chatbox")
     chatbox.classList.remove(colorTheme);
     colorTheme = colorTheme === "light" ? "dark" : "light"
@@ -56,7 +63,7 @@ function selectMessage(chat) {
     chat.classList.add("highlight");
     selectedChat = chat;
 
-    // get comment
+    // get comment and put in textarea
     let textarea = document.getElementById("comment");
     comment = localStorage[chat.id];
     if (comment !== undefined) {
@@ -70,6 +77,8 @@ function clearCache() {
     if (confirm("Delete your comments for all games? (Clears localStorage)")) {
         localStorage.clear();
     }
+    let comment = document.getElementById("comment");
+    comment.value = "";
 }
 
 function setComment() {
@@ -84,8 +93,9 @@ function setComment() {
 function displayLogs(logs) {
     let chatbox = document.getElementById("chatbox");
     let notes = document.getElementById("notes");
-    let index = 0
     notes.hidden = false;
+
+    let index = 0
     for (line of logs.split('\n')) { 
         let chat = document.createElement("div");
         chat.setAttribute('id', selectedGame.toString() + '-' + index.toString());
@@ -129,8 +139,16 @@ function displayLogs(logs) {
 }
 
 function getGameLogs(gameNo) {
+    // Reset state
     let chatbox = document.getElementById("chatbox");
-    chatbox.textContent = "Loading..."
+    let notes = document.getElementById("notes");
+    let comment = document.getElementById("comment");
+    selectedChat = undefined;
+    chatbox.hidden = false;
+    chatbox.textContent = "Loading...";
+    notes.hidden = true;
+    comment.value = "";
+
     let docID = gameDocIDs[gameNo];
     const url = "https://docs.google.com/document/d/" + docID + "/export?format=txt";
     fetch(url)
