@@ -8,8 +8,8 @@ const gameDocIDs = {
     4: "1zbkvojK8XVNu0nKC7udtpgejFEkImzHev1V4AalvzxA",
     5: "1JKPaRP8B5e6igzqbY1hM2KivGDrcy33_B-IENJ_TWEE",
     6: "1mSDhrF7Bg0HKtIlk9tb_v1exCE4s7TaO0LpYRUdJ7MY",
-    7: "",
-    8: "",
+    7: "1UHfDYVPglRTk2Shr7G-RFoP3FQXfXPprTV3xP6KQIAY",
+    8: "1ToctzdVU8XbJPjKBWFEuB3AOyIJ84OnSs9Vtal1IAWI",
     // extra weeks
     9: "",
     10: "",
