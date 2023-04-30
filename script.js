@@ -11,7 +11,7 @@ const gameDocIDs = {
     7: "1UHfDYVPglRTk2Shr7G-RFoP3FQXfXPprTV3xP6KQIAY",
     8: "1ToctzdVU8XbJPjKBWFEuB3AOyIJ84OnSs9Vtal1IAWI",
     // extra weeks
-    9: "",
+    9: "1MZ3hEXzPUleuGqENf50REf6glH72yDf7CIS5b2QgNVo",
     10: "",
     11: "",
     12: "",
