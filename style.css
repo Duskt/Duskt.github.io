@@ -4,7 +4,7 @@ body {
 }
 
 /* Positioning */
-#navbar button {
+nav button {
     height: 1.6em;
     margin-bottom: 1vh;
 }
@@ -12,6 +12,21 @@ body {
 #gamecontent {
     max-height: 93.5vh;
     display: flex;
+}
+textarea#comment {
+    /* 1px*2 border (default) 2px*2 padding */
+    width: calc(100% - 6px);
+    height: calc(100% - 6px - 1.7em);
+    resize: none;
+    padding: 2px;
+}
+@media (max-width: 800px) {
+    #gamecontent {
+        flex-direction: column-reverse;
+    }
+    textarea#comment {
+        height: 7em;
+    }
 }
 
 #chatbox {
@@ -22,6 +37,7 @@ body {
 #notes {
     border: 1px dotted gray;
     min-width: 20%;
+    min-height: 20vh;
 }
 
 /* Color theme */
@@ -38,14 +54,6 @@ body {
 #chatbox .chat.highlight {
     background-color: yellow;
     color: black;
-}
-
-/* Comments */
-textarea#comment {
-    width: 97%;
-    width: calc(100% - 6px);
-    height: 90%;
-    resize: none;
 }
 
 /* Chat styles taken from PS! */

@@ -20,23 +20,27 @@ const gameDocIDs = {
 // GLOBALS
 var colorTheme = "dark" // "dark" | "light"
 var selectedChat = undefined;
-var selectedGame = undefined;
+var loadedGame = undefined;
 
 document.addEventListener("DOMContentLoaded", function(event) {
     // set colorTheme
     chatbox.classList.add(colorTheme);
 
-    // generate game buttons
-    let navbar = document.getElementById("navbar");
+    // generate game options
+    let dropdown = document.getElementById("game-select");
+    let button = document.getElementById("load-game");
+    button.onclick = () => {
+        if (dropdown.value) {getGameLogs(Number(dropdown.value))}
+    };
     for (let gameNo in gameDocIDs) {
-        let button = document.createElement('button');
-        button.textContent = "Game " + gameNo.toString();
-        button.onclick = () => getGameLogs(gameNo);
+        let option = document.createElement('option');
+        option.value = gameNo.toString();
+        option.textContent = "Game " + option.value;
         // disabled if there is no link
         if (gameDocIDs[gameNo] === "") {
-            button.disabled = true
+            option.disabled = true
         }
-        navbar.appendChild(button);
+        dropdown.appendChild(option);
     }
 });
 
@@ -49,7 +53,9 @@ function fetchLogs(url) {
 
 function changeTheme() {
     // binary alternates - refactor if adding new themes
-    let chatbox = document.getElementById("chatbox")
+    let chatbox = document.getElementById("chatbox");
+    let button = document.getElementById("theme");
+    button.textContent = colorTheme[0].toUpperCase() + colorTheme.slice(1) + " mode";
     chatbox.classList.remove(colorTheme);
     colorTheme = colorTheme === "light" ? "dark" : "light"
     chatbox.classList.add(colorTheme);
@@ -98,7 +104,7 @@ function displayLogs(logs) {
     let index = 0
     for (line of logs.split('\n')) { 
         let chat = document.createElement("div");
-        chat.setAttribute('id', selectedGame.toString() + '-' + index.toString());
+        chat.setAttribute('id', loadedGame.toString() + '-' + index.toString());
         index++;
         chat.addEventListener("click", () => {selectMessage(chat)});
         chat.classList.add('chat');
@@ -155,7 +161,7 @@ function getGameLogs(gameNo) {
         .then((resp) => resp.text())
         .then((text) => {
             chatbox.textContent = "";
-            selectedGame = gameNo;
+            loadedGame = gameNo;
             displayLogs(text);
         })
         .catch((reason) => {

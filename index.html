@@ -7,10 +7,14 @@
         <link href="style.css" rel="stylesheet" />
     </head>
     <body>
-        <div id="navbar">
-            <button onclick="changeTheme()">Light mode</button>
+        <nav>
+            <button id="theme" onclick="changeTheme()">Light mode</button>
             <button onclick="clearCache()">Clear comments</button>
-        </div>
+            <select id="game-select">
+                <option value="">Select game</option>
+            </select>
+            <button id="load-game">Load</button>
+        </nav>
         <div id="gamecontent">
             <div id="chatbox" class="dark" hidden="true"></div>
             <div id="notes" hidden="true">
