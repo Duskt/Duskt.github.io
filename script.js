@@ -13,8 +13,8 @@ const gameDocIDs = {
     // extra weeks
     9: "1MZ3hEXzPUleuGqENf50REf6glH72yDf7CIS5b2QgNVo",
     10: "1ZGTMhAps0-A9QoSrzBohQcU_2ZW0dSRKWGtop8Ria5I",
-    11: "",
-    12: "",
+    11: "190BOQ7mz7rxgly7IJIYuc8VeXFTXCpDMkiqrXCp3gmE",
+    12: "1cX9pZvjOaWnvEo_7WcT_ygETyEV8OMR5ouPTLuSPj-8",
 }
 
 // GLOBALS
