@@ -1,0 +1,15 @@
+@import url(bs/resources/sheet.css);
+
+html {
+    overflow: scroll;
+}
+
+body {
+    margin: 0px;
+}
+
+iframe {
+    border: none;
+    width: 100vw;
+    height: 100vh;
+}
